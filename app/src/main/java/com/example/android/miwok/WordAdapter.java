@@ -17,6 +17,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
     /** Resource ID for the background color for this list of words */
     private int mColorResourceId;
+    //variable to add music into constructor
+    //private String mAudioResouceId;
 
     public WordAdapter(Activity context, ArrayList<Word> words, int colorResourceId) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
@@ -25,6 +27,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // going to use this second argument, so it can be any value. Here, we used 0.
         super(context, 0, words);
         mColorResourceId = colorResourceId;
+        //mAudioResouceId = audioResourceId;
     }
 
     @Override
@@ -54,6 +57,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // Find the ImageView in the list_item.xml layout with the ID image.
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
 
+        // Find the ImageView in the list_item.xml layout with the ID play.
+        //ImageView playButton = (ImageView) listItemView.findViewById(R.id.play_button);
+
         // Check if an image is provided for this word or not
         if (currentWord.hasImage()) {
             // If an image is available, display the provided image based on the resource ID
@@ -64,6 +70,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
             // Otherwise hide the ImageView (set visibility to GONE)
             imageView.setVisibility(View.GONE);
         }
+
+        /*// Check if an audio is provided for this word or not
+        if (currentWord.hasAudio()) {
+            // If an image is available, display the provided image based on the resource ID
+            playButton.setImageResource(currentWord.getAudioResourceId());
+            // Make sure the view is visible
+            playButton.setVisibility(View.VISIBLE);
+        } else {
+            // Otherwise hide the ImageView (set visibility to GONE)
+            playButton.setVisibility(View.GONE);
+        }*/
 
         // Set the theme color for the list item
         View textContainer = listItemView.findViewById(R.id.text_container);
